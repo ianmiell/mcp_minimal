@@ -16,7 +16,7 @@ def process_request(req):
                 "protocolVersion": "2024-11-05",
                 "serverInfo": {
                     "name": "minimal-mcp",
-                    "version": "0.1.0"
+                    "version": "0.1.1"
                 },
                 "capabilities": {
                     "tools": {}
@@ -39,6 +39,16 @@ def process_request(req):
                                 "name": {"type": "string"}
                             }
                         }
+                    },
+                    {
+                        "name": "goodbye",
+                        "description": "Says goodbye",
+                        "inputSchema": {
+                            "type": "object",
+                            "properties": {
+                                "name": {"type": "string"}
+                            }
+                        }
                     }
                 ]
             }
@@ -50,6 +60,8 @@ def process_request(req):
 
         if name == "hello":
             result = f"Hello, {args.get('name', 'world')}!"
+        elif name == "goodbye":
+            result = f"Goodbye, {args.get('name', 'friend')}!"
         else:
             result = "Unknown tool"
 
