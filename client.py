@@ -43,7 +43,7 @@ If a tool is useful, respond ONLY with JSON:
 Otherwise respond normally.
 """.strip()
 
-user_prompt = "Say hello to Ian"
+user_prompt = input("User prompt: ").strip()
 
 # ---- ask Ollama ----
 resp = requests.post(
@@ -95,4 +95,3 @@ resp = requests.post(
 ).json()
 
 print("FINAL:", resp["message"]["content"])
-
